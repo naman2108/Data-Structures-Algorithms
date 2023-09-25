@@ -4,13 +4,13 @@ class Solution:
         mp=defaultdict(int)
         for i in s:
             mp[i]+=1
-        bucket=[[]  for _ in range(len(s)+1)]
-        for i,j in mp.items():
-            bucket[j].append(i)
-        res=[]
-        for i in range(len(bucket)-1,0,-1):
-            for char in bucket[i]:
-                res.extend([char]*i)
-        return "".join(res)        
+        freqholder=[[] for _ in range(len(s)+1)]
+        for i, j in mp.items():
+            freqholder[j].append(i)
+        ans=[]
+        for i in range(len(freqholder)-1,-1,-1):
+            for j in freqholder[i]:
+                ans.extend([j]*i)
+        return "".join(ans)            
 
         
