@@ -1,16 +1,9 @@
-from collections import defaultdict
 class Solution:
     def findTheDifference(self, s: str, t: str) -> str:
-        mp=defaultdict(int)
-        for i in t:
-            mp[i]+=1
+        c=0
         for i in s:
-            mp[i]-=1
-        for i,j in mp.items():
-            if j>0:
-                return i        
-
-
-
-        
+            c^=ord(i)
+        for j in t:
+            c^=ord(j)
+        return chr(c)        
         
