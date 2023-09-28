@@ -17,7 +17,7 @@ class Solution:
         if len(s)!=8:
             return False
         for i in s:
-            if not i or len(i)>4:
+            if not i or  len(i)>4:
                 return False
             for c in i:
                 if c not in mp:
