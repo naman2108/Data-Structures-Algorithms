@@ -1,10 +1,20 @@
 class Solution:
-    def minCostClimbingStairs(self, cost: List[int]) -> int:
-        n = len(cost)
-        dp = [0] * (n + 1)
-
-        for i in range(2, n + 1):
-            dp[i] = min(dp[i - 1] + cost[i - 1], dp[i - 2] + cost[i - 2])
-
+    def minclimb(self,cost,n,dp):
+        if n<=1:
+            return 0
+        if n==2:
+            dp[n]=min(cost[0],cost[1])
+        if dp[n]!=-1:
+            return dp[n]    
+        dp[n]=min(self.minclimb(cost,n-1,dp)+cost[n-1],self.minclimb(cost,n-2,dp)+cost[n-2])
         return dp[n]
+                
+    def minCostClimbingStairs(self, cost: List[int]) -> int:
+        n=len(cost)
+        dp=[-1]*(n+1)
+        return self.minclimb(cost,n,dp)
+        
+        
+        
+
         
