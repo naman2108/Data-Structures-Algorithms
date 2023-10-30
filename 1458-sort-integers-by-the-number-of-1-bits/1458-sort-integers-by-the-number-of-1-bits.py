@@ -7,7 +7,7 @@ class Solution:
         return cnt        
 
     def sortByBits(self, arr: List[int]) -> List[int]:
-        return sorted(arr,key=lambda x: (self.count1(bin(x)),x))
+        return sorted(arr,key=lambda x:(bin(x).count('1'),x))
             
 
 
