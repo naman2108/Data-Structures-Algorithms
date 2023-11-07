@@ -10,8 +10,12 @@ class Solution:
             i+=1
             j+=1
         arr.sort()    
-        for i in range(len(arr)):
-            if arr[i]<=i:
-                break
-            cnt+=1
-        return cnt             
+        clock=0
+
+        for i in arr:
+            if i<=clock:
+                return cnt
+            else:
+                cnt+=1
+                clock+=1
+        return cnt                   
